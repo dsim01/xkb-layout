@@ -33,9 +33,9 @@ system-level context.
 ## Requirements
 
 - Linux with X11
-- GCC
+- Clang or GCC
 - X11 development headers and libraries (`libX11`)
-- `make` (optional for the alternative build method)
+- `make`
 
 ### Debian/Ubuntu
 
@@ -58,18 +58,43 @@ sudo pacman -S base-devel libx11
 
 ## Build
 
-### Recommended way
+### Standard build (debug)
+
 ```bash
 make
 ```
 
-### Alternative way
+This produces the executable `xkb-layout` with debug symbols.
+
+### Release build
+
 ```bash
-chmod +x ./build.sh
-./build.sh
+make release
 ```
 
-This produces the executable `xkb-layout` in the project root.
+Compiles with optimizations (`-O3`) and strips symbols.
+
+### Clean build files
+
+```bash
+make clean
+```
+
+## Installation
+
+By default, the binary is installed to `~/.local/bin`.
+
+### Install
+
+```bash
+make install
+```
+
+### Uninstall
+
+```bash
+make uninstall
+```
 
 ## Run
 
@@ -88,15 +113,13 @@ us
 ```text
 .
 ├── main.c      # program source code
-├── Makefile    # build instructions
-├── build.sh    # alternative build script
+├── Makefile    # build and install instructions
 └── xkb-layout  # compiled binary (created after build)
 ```
 
 ## Roadmap
 
 - Improve error handling and return codes
-- Add installation target (`make install`)
 
 ## Contributing
 

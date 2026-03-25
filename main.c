@@ -37,7 +37,7 @@ int handle_x_errors(Display *dpy, XErrorEvent *err) {
   return 0;
 }
 
-int main() {
+int main(void) {
   Display *dpy = XOpenDisplay(NULL);
   if (dpy == NULL) {
     ERROR_EXIT("xkb-layout failed to open display");
